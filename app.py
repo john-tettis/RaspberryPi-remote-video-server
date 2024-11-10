@@ -1,26 +1,23 @@
 from flask import Flask, render_template, request
-import webbrowser
+from web import setup_browser, play_youtube_video
+
 
 app = Flask(__name__)
-
 
 
 #Front end rendering
 @app.route('/home',methods=["GET"])
 def home():
 	return render_template('index.html')
-	
-	
+
 	
 #backend handling
 
 @app.route('/play', methods=["GET"])
 def play_video():
+	driver = setup_browser()
 	link= request.args.get("link")
-	webbrowser.open(link)
-	
-	
-	
+	play_youtube_video(link,driver)
 	return"link submitted"
 	
 	
