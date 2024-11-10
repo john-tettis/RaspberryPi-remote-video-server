@@ -6,11 +6,15 @@
 
     <title>Stream Video</title>
   </head>
-  <form action="/play" method="GET">
+  <form id="link-form"action="/home>
 	  <label for="link">Input Link:</label>
-	  <input name="link" id="linkinput">
-	  <input type="submit" value="submit">	
+	  <input name="link" id="link-input">
+	  <input id="submit-button"type="submit" value="submit">	
   </form>
+  <div id="loading-screen" style="display:none">
+    Starting your video...
+    <button id="stop-button">Stop Video</button>
+    </div>
   <script src="{{url_for('static', filename='js/script.js') }}"></script>
   <body>
   </body>
