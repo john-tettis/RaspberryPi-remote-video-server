@@ -17,14 +17,18 @@ def setup_browser():
 	return driver
 
 def play_youtube_video(link, driver):
+	global stop_video
 	driver.get(link)
-	sleep(10)
+	sleep(5)
 	#make window fullscreen
 	driver.fullscreen_window()
 	#get body for key presses
 	body = driver.find_element("tag name","body")
-	body.send_keys("f")
+	#body.send_keys("f")
 	body.send_keys(Keys.SPACE)
+	while not stop_video:
+		pass
+	driver.quit()
 	return
 
 	
